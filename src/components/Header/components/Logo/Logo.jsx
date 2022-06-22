@@ -1,11 +1,13 @@
 import "./Logo.css";
+import { Link } from 'react-router-dom';
+
 
 export default function Logo() {
   return (
     <div>
-      <a className="header-link" href="/">
+      <Link className="header-link" to="/">
         <span className="logo">RAWG</span>
-      </a>
+      </Link>
     </div>
   );
 }

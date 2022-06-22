@@ -1,0 +1,16 @@
+.filter-select {
+    padding: 10px 16px;
+    background-color: hsla(0, 0%, 100%, .07);
+    border-radius: 8px;
+    font-size: 14px;
+    color: rgb(216, 213, 213);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-right: 15px;
+}
+
+.filter-select option{
+    color: rgb(17, 17, 17);
+    
+}

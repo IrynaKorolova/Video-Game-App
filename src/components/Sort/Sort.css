@@ -1,0 +1,16 @@
+.sort-select {
+    padding: 10px 16px;
+    background-color: hsla(0, 0%, 100%, .07);
+    border-radius: 8px;
+    font-size: 14px;
+    color: rgb(216, 213, 213);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.sort-select option{
+    color: rgb(17, 17, 17);
+    margin: 15px;
+}

@@ -4,6 +4,8 @@ import { SET_PARAMS  } from "./actionTypes";
 const initialState = {
   page: 1,
   page_size: 12,
+  search: '',
+  ordering: ''
 };
 
 export function catalogParamsReducer(state = initialState, action) {

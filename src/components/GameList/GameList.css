@@ -20,22 +20,32 @@
     margin: 8px 0 0;
 }
 
-.btn-wrap {
+.filters-wrap {
     padding: 35px 40px;
     display: flex;
     align-items: center;
-    gap: 15px;
+}
+
+.btn-wrap{
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .game-btn {
     padding: 10px 15px;
-    background-color: rgb(165, 165, 165);
+    background-color: hsla(0, 0%, 100%, .07);
     border-radius: 6px;
+    font-size: 14px;
+    color: rgb(216, 213, 213);
+    outline: none;
+    border: none;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .game-btn:hover {
-    background-color: #757575;
+    background-color: #383838;
     transition: 0.3s;
 }
