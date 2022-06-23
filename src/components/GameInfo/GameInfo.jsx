@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+
 import { getGameDetails } from "../../api/games";
 
 import "./GameInfo.css";
@@ -55,13 +56,28 @@ export default function GameInfo() {
           className="mySwiper"
         >
           <SwiperSlide>
-            <img alt="img" src={game.background_image}></img>
+            <img
+              alt="img"
+              width="1"
+              height="1"
+              src={game.background_image}
+            ></img>
           </SwiperSlide>
           <SwiperSlide>
-            <img alt="img" src={game.background_image_additional}></img>
+            <img
+              alt="img"
+              width="1"
+              height="1"
+              src={game.background_image_additional}
+            ></img>
           </SwiperSlide>
           <SwiperSlide>
-            <img alt="img" src={game.background_image}></img>
+            <img
+              alt="img"
+              width="1"
+              height="1"
+              src={game.background_image}
+            ></img>
           </SwiperSlide>
         </Swiper>
       </div>

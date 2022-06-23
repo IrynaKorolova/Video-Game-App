@@ -13,6 +13,8 @@ export default function Games({ game }) {
           loading="lazy"
           className="game-img"
           alt="game"
+          width="1"
+          height="1"
         ></img>
       </div>
 

@@ -9,58 +9,45 @@ import { gamesSelector } from "../../store/games/selectors";
 import { getGamesThunk } from "../../store/games/thunks";
 
 import GameCard from "../GameCard/GameCard";
-import Sort from "../Sort/Sort";
-import Filter from "../Filter/Filter";
 
 export default function GameList() {
   const games = useSelector(gamesSelector);
   const catalogParams = useSelector(catalogParamsSelector);
-  console.log(catalogParams);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGamesThunk());
   }, [catalogParams]);
 
+  function prevPageHandler() {
+    return dispatch(
+      setCatalogParams({ ...catalogParams, page: catalogParams.page - 1 })
+    );
+  }
+
+  function nextPageHandler() {
+    return dispatch(
+      setCatalogParams({ ...catalogParams, page: catalogParams.page + 1 })
+    );
+  }
+
   return (
     <main>
       <div className="container">
-        <div className="content-wrap">
-          <h1 className="content-heading">New and trending</h1>
-          <p className="content-description">
-            Based on player counts and release date
-          </p>
-        </div>
-        <div className="filters-wrap">
-          <Filter />
-          <Sort />
-        </div>
         <div className="game-list-wrap">
           {games.map((game) => (
             <GameCard key={game.id} game={game}></GameCard>
           ))}
         </div>
         <div className="btn-wrap">
-        {catalogParams.page > 1 && (
-          <button
-            className="game-btn"
-            onClick={() =>
-              catalogParams.page > 1
-                ? dispatch(setCatalogParams({ page: catalogParams.page - 1 }))
-                : null
-            }
-          >
-            ❮ Previous Page
+          {catalogParams.page > 1 && (
+            <button className="game-btn" onClick={prevPageHandler}>
+              ❮ Previous Page
+            </button>
+          )}
+          <button className="game-btn" onClick={nextPageHandler}>
+            Next Page ❯
           </button>
-        )}
-        <button
-          className="game-btn"
-          onClick={() =>
-            dispatch(setCatalogParams({ page: catalogParams.page + 1 }))
-          }
-        >
-          Next Page ❯
-        </button>
-      </div>
+        </div>
       </div>
     </main>
   );
