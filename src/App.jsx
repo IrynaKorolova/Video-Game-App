@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
+
 import GameCatalog from "./components/GameCatalog/GameCatalog";
-
 import GameInfo from "./components/GameInfo/GameInfo";
-
 import Header from "./components/Header/Header";
 
 export default function App() {

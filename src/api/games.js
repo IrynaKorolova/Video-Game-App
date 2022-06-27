@@ -24,3 +24,6 @@ export function getParentPlatforms() {
 export function getGenres() {
   return gamesApi.get("/genres");
 }
+export function getScreenshots(game_pk) {
+  return gamesApi.get(`/games/${game_pk}/screenshots`);
+}

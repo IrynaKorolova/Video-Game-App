@@ -1,4 +1,4 @@
-import './Filter.css';
+import "./Filter.css";
 
 import { setCatalogParams } from "../../store/catalogParams/actionCreators";
 import { useDispatch } from "react-redux";
@@ -22,11 +22,18 @@ export default function Filter() {
   function selectFilter(event) {
     const filterType = event.target.name;
     const filterValue = event.target.value;
-    dispatch(setCatalogParams({ [filterType]: filterValue }));
+    dispatch(
+      setCatalogParams({ [filterType]: filterValue, page: 1, more: false })
+    );
   }
   return (
     <div>
-      <select className='filter-select' defaultValue="" onChange={selectFilter} name="platforms">
+      <select
+        className="filter-select"
+        defaultValue=""
+        onChange={selectFilter}
+        name="parent_platforms"
+      >
         <option value="" disabled>
           Filter by platform
         </option>
@@ -36,7 +43,12 @@ export default function Filter() {
           </option>
         ))}
       </select>
-      <select className='filter-select' defaultValue="" onChange={selectFilter} name="genres">
+      <select
+        className="filter-select"
+        defaultValue=""
+        onChange={selectFilter}
+        name="genres"
+      >
         <option value="" disabled>
           Filter by genre
         </option>

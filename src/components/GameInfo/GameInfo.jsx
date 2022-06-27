@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { getGameDetails } from "../../api/games";
-
-import "./GameInfo.css";
+import { getGameDetails, getScreenshots } from "../../api/games";
 
 import { useParams, useNavigate, Link } from "react-router-dom";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "./GameInfo.css";
 
 import { Navigation, Pagination } from "swiper";
 
@@ -17,12 +18,22 @@ export default function GameInfo() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [game, setGame] = useState({});
+  const [screenshots, setScreenshots] = useState([]);
+
   useEffect(() => {
     getGameDetails(slug)
       .then((response) => setGame(response.data))
       .catch((error) => {
         console.log(error);
         navigate("/404", { replace: true });
+      });
+  }, [slug]);
+
+  useEffect(() => {
+    getScreenshots(slug)
+      .then((response) => setScreenshots(response.data.results))
+      .catch((error) => {
+        console.log(error);
       });
   }, [slug]);
 
@@ -38,48 +49,37 @@ export default function GameInfo() {
           target="_blank"
           rel="noreferrer"
         >
-          {game.website}
+          {game.website || "No website available"}
         </a>
         <h3 className="game-about-subtitle">About</h3>
         <p className="game-info-description">{game.description_raw}</p>
       </div>
       <div className="game-slider-wrap">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <img
-              alt="img"
-              width="1"
-              height="1"
-              src={game.background_image}
-            ></img>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              alt="img"
-              width="1"
-              height="1"
-              src={game.background_image_additional}
-            ></img>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              alt="img"
-              width="1"
-              height="1"
-              src={game.background_image}
-            ></img>
-          </SwiperSlide>
-        </Swiper>
+        {screenshots.length > 0 && (
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {screenshots.map((screenshot) => (
+              <SwiperSlide key={screenshot.id}>
+                <img
+                  alt="img"
+                  width={screenshot.width}
+                  height={screenshot.height}
+                  src={screenshot.image}
+                ></img>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+        {screenshots.length === 0 && <h2>No screenshots</h2>}
       </div>
     </div>
   );

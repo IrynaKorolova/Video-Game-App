@@ -9,7 +9,7 @@ export default function Header() {
       <div className="header-wrap container">
         <Logo />
         <div className="header-search">
-         <SearchBar />
+          <SearchBar />
         </div>
       </div>
     </header>

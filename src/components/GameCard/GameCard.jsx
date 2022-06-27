@@ -1,10 +1,12 @@
-import "./GameCard.css";
+import './GameCard.css';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Games({ game }) {
-  const gameGenres = game.genres.map((genres) => genres.slug).join(", ");
-
+  const gameGenres = game.genres.map((genres) => genres.slug).join(', ');
+  const platforms = game.platforms
+    .map((platform) => platform.platform.name)
+    .join(', ');
   return (
     <div className="game-card">
       <div className="game-header">
@@ -28,6 +30,7 @@ export default function Games({ game }) {
           <li>Rating: {game.rating}</li>
           <li>Release date: {game.released}</li>
           <li>Genres: {gameGenres}</li>
+          <li>Platforms: {platforms}</li>
         </ul>
       </div>
     </div>
