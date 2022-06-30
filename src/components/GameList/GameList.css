@@ -29,3 +29,15 @@
     background-color: #383838;
     transition: 0.3s;
 }
+
+.loader-wrap {
+    padding: 25px 40px;
+    text-align: center;
+}
+
+
+@media (max-width: 1199.98px) {
+    .game-list-wrap {
+        justify-content: space-around;
+    }
+}

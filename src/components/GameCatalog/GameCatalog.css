@@ -18,3 +18,36 @@
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 1199.98px) {
+    .filters-wrap {
+        justify-content: center;
+    }
+
+    .content-wrap {
+        text-align: center;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .content-heading {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .filters-wrap {
+        flex-wrap: wrap;
+    }
+
+    .content-heading {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .content-heading {
+        font-size: 42px;
+    }
+}

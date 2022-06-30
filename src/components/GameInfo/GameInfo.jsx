@@ -6,6 +6,7 @@ import { getGameDetails, getScreenshots } from "../../api/games";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,12 +15,16 @@ import "./GameInfo.css";
 
 import { Navigation, Pagination } from "swiper";
 
+import { Lazy } from "swiper";
+SwiperCore.use([Lazy]);
+
 export default function GameInfo() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [game, setGame] = useState({});
   const [screenshots, setScreenshots] = useState([]);
 
+  
   useEffect(() => {
     getGameDetails(slug)
       .then((response) => setGame(response.data))
@@ -27,10 +32,7 @@ export default function GameInfo() {
         console.log(error);
         navigate("/404", { replace: true });
       });
-  }, [slug]);
-
-  useEffect(() => {
-    getScreenshots(slug)
+      getScreenshots(slug)
       .then((response) => setScreenshots(response.data.results))
       .catch((error) => {
         console.log(error);
@@ -57,6 +59,8 @@ export default function GameInfo() {
       <div className="game-slider-wrap">
         {screenshots.length > 0 && (
           <Swiper
+            preloadImages={false}
+            lazy={true}
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
@@ -70,11 +74,13 @@ export default function GameInfo() {
             {screenshots.map((screenshot) => (
               <SwiperSlide key={screenshot.id}>
                 <img
+                  className="swiper-lazy"
                   alt="img"
                   width={screenshot.width}
                   height={screenshot.height}
-                  src={screenshot.image}
+                  data-src={screenshot.image}
                 ></img>
+                <div className="swiper-lazy-preloader"></div>
               </SwiperSlide>
             ))}
           </Swiper>

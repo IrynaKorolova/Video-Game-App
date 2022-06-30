@@ -3,13 +3,15 @@ import './GameCard.css';
 import { Link } from 'react-router-dom';
 
 export default function Games({ game }) {
+  
   const gameGenres = game.genres.map((genres) => genres.slug).join(', ');
   const platforms = game.platforms
     .map((platform) => platform.platform.name)
     .join(', ');
+
   return (
     <div className="game-card">
-      <div className="game-header">
+      <div>
         <img
           src={game.background_image}
           loading="lazy"

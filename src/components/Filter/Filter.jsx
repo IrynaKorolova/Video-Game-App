@@ -27,7 +27,7 @@ export default function Filter() {
     );
   }
   return (
-    <div>
+    <>
       <select
         className="filter-select"
         defaultValue=""
@@ -58,6 +58,6 @@ export default function Filter() {
           </option>
         ))}
       </select>
-    </div>
+    </>
   );
 }
