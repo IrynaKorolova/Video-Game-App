@@ -1,1 +1,1 @@
-export const SET_PARAMS = 'SET_PARAMS';
+export const SET_PARAMS = "SET_PARAMS";

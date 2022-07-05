@@ -1,3 +1,3 @@
 export function catalogParamsSelector(state) {
-    return state.catalogParams;
+  return state.catalogParams;
 }

@@ -1,4 +1,4 @@
-import { SET_PARAMS } from './actionTypes';
+import { SET_PARAMS } from "./actionTypes";
 
 export function setCatalogParams(params) {
   return {
