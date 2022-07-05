@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<GameCatalog />} />
           <Route path="/games/:slug" element={<GameInfo />} />
-          <Route path="*" element={<h1>Page Not found!</h1>} />
+          <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
       </BrowserRouter>
     </div>
