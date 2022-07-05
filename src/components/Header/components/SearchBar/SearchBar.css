@@ -16,3 +16,9 @@
 .search-input::placeholder {
     color: rgb(59, 59, 59);
 }
+
+@media (max-width: 575.98px) {
+    .search-form {
+        width: 100%;
+    }
+}

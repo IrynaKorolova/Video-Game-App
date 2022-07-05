@@ -11,6 +11,7 @@ import SwiperCore from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/lazy";
 import "./GameInfo.css";
 
 import { Navigation, Pagination } from "swiper";
@@ -24,7 +25,6 @@ export default function GameInfo() {
   const [game, setGame] = useState({});
   const [screenshots, setScreenshots] = useState([]);
 
-  
   useEffect(() => {
     getGameDetails(slug)
       .then((response) => setGame(response.data))
@@ -32,7 +32,7 @@ export default function GameInfo() {
         console.log(error);
         navigate("/404", { replace: true });
       });
-      getScreenshots(slug)
+    getScreenshots(slug)
       .then((response) => setScreenshots(response.data.results))
       .catch((error) => {
         console.log(error);
@@ -42,7 +42,9 @@ export default function GameInfo() {
   return (
     <div className="container">
       <div className="game-info-wrap">
-        <Link to="/">&#8249; Back to main</Link>
+        <Link className="game-link" to="/">
+          &#8249; Back to main
+        </Link>
         <h2 className="game-info-title">{game.name}</h2>
         <h3 className="game-info-subtitle">Game website</h3>
         <a
@@ -75,12 +77,12 @@ export default function GameInfo() {
               <SwiperSlide key={screenshot.id}>
                 <img
                   className="swiper-lazy"
-                  alt="img"
+                  alt="game screenshot"
                   width={screenshot.width}
                   height={screenshot.height}
                   data-src={screenshot.image}
                 ></img>
-                <div className="swiper-lazy-preloader"></div>
+                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
               </SwiperSlide>
             ))}
           </Swiper>

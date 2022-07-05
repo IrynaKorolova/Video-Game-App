@@ -1,13 +1,12 @@
-import './GameCard.css';
+import "./GameCard.css";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Games({ game }) {
-  
-  const gameGenres = game.genres.map((genres) => genres.slug).join(', ');
+  const gameGenres = game.genres.map((genres) => genres.slug).join(", ");
   const platforms = game.platforms
     .map((platform) => platform.platform.name)
-    .join(', ');
+    .join(", ");
 
   return (
     <div className="game-card">

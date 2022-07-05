@@ -1,12 +1,13 @@
-import './GameList.css';
+import "./GameList.css";
 
-import Pagination from '../Pagination/Pagination';
-import GameCard from '../GameCard/GameCard';
-import Loader from '../Loader/Loader';
+import { v4 as uuidv4 } from "uuid";
 
-import { gamesSelector } from '../../store/games/selectors';
-import { useSelector } from 'react-redux';
+import Pagination from "../Pagination/Pagination";
+import GameCard from "../GameCard/GameCard";
+import Loader from "../Loader/Loader";
 
+import { gamesSelector } from "../../store/games/selectors";
+import { useSelector } from "react-redux";
 
 export default function GameList() {
   const games = useSelector(gamesSelector);
@@ -20,15 +21,12 @@ export default function GameList() {
       <div className="container">
         <div className="game-list-wrap">
           {games.data.map((game) => (
-            <GameCard key={game.id} game={game}></GameCard>
+            <GameCard key={uuidv4()} game={game}></GameCard>
           ))}
         </div>
-        <div className="loader-wrap">
-        {games.loading && <Loader></Loader>}
-        </div>
+        <div className="loader-wrap">{games.loading && <Loader></Loader>}</div>
         <Pagination />
       </div>
     </main>
   );
 }
-

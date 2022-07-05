@@ -5,3 +5,11 @@
     padding: 35px 40px;
 }
 
+@media (max-width: 575.98px) {
+    .header-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 25px 25px 10px;
+    }
+}

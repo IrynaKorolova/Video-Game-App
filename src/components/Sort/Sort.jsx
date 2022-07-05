@@ -12,7 +12,7 @@ export default function Sort() {
   return (
     <select className="sort-select" defaultValue="" onChange={selectSort}>
       <option value="" disabled>
-        Sort by
+        Sort by rating
       </option>
       <option value="rating">Rating up</option>
       <option value="-rating">Rating down</option>

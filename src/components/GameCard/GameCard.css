@@ -41,3 +41,13 @@
   transition: 0.3s;
 }
 
+@media (max-width: 575.98px) {
+  .game-card {
+    margin-bottom: 17px;
+    font-size: 14px;
+  }
+
+  .game-content {
+    padding: 15px;
+  }
+}

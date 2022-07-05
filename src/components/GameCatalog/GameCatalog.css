@@ -4,7 +4,7 @@
 
 .content-heading {
     font-size: 72px;
-    line-height: 74px;
+    line-height: 1.5;
     font-weight: 700;
 }
 
@@ -22,6 +22,7 @@
 @media (max-width: 1199.98px) {
     .filters-wrap {
         justify-content: center;
+        align-items: flex-start;
     }
 
     .content-wrap {
@@ -30,24 +31,33 @@
 }
 
 @media (max-width: 991.98px) {
-
     .content-heading {
         font-size: 60px;
     }
 }
 
 @media (max-width: 767.98px) {
-    .filters-wrap {
-        flex-wrap: wrap;
-    }
-
     .content-heading {
         font-size: 52px;
     }
 }
 
 @media (max-width: 575.98px) {
+    .content-wrap {
+        padding: 10px;
+    }
+
+    .filters-wrap {
+        padding: 25px;
+        flex-direction: column;
+    }
+
     .content-heading {
-        font-size: 42px;
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .content-description {
+        font-size: 12px;
     }
 }
