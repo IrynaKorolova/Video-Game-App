@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Video-Game-App/static/css/main.f4e8bf20.css",
+    "main.js": "/Video-Game-App/static/js/main.907aff5f.js",
+    "index.html": "/Video-Game-App/index.html",
+    "main.f4e8bf20.css.map": "/Video-Game-App/static/css/main.f4e8bf20.css.map",
+    "main.907aff5f.js.map": "/Video-Game-App/static/js/main.907aff5f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4e8bf20.css",
+    "static/js/main.907aff5f.js"
+  ]
+}
